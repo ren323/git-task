@@ -1,22 +1,18 @@
 class BooksController < ApplicationController
-before_action :correct_user, only: [:edit]
-
-def authenticate_user
-	if @current_path == nil
-	redirect_to("/users/sign_in")
-	end
-end
+before_action :authenticate_user!
+before_action :correct_user, only: [:edit, :destroy, :update]
 
 
 def index
   @books = Book.all
   @book = Book.new
-	@user = User.new
+	
 	end
 
 def show
-  @book = Book.find_by(id:params[:id])
-  @user = User.new
+  @book = Book.find(params[:id])
+  @newbook = Book.new
+  @user = @book.user
 end
 
 def create
@@ -43,27 +39,8 @@ end
 
 def edit
 
- @book = Book.find(params[:id])
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
- 
+  @book = Book.find(params[:id])
+	 
 end
 
 def destroy

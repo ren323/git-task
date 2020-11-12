@@ -120,7 +120,7 @@ describe '投稿のテスト' do
   		end
   		it 'ユーザー画像・名前のリンク先が正しい' do
   			visit book_path(book)
-  			expect(page).to have_link book.user.name, href: user_path(book.user)
+  expect(page).to have_link book.user.name, href: user_path(book.user)
   		end
   		it '投稿のtitleが表示される' do
   			visit book_path(book)

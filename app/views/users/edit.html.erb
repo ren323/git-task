@@ -4,6 +4,16 @@
       <div class="form-header text-center">
         <h1 class="form-header-title">User info</h1>
       </div>
+      <% if @user.errors.any? %>
+    <div id="error_explanation">
+      <h3><%= @user.errors.count %>error prohibited this obj from being saved:</h3>
+      <ul>
+      <% @user.errors.full_messages.each do |message| %>
+        <h3><%= message %></h3>
+      <% end %>
+      </ul>
+    </div>
+    <% end %>
       <%= form_for(@user) do |f| %>
         <table class="table">
       <div class="form-body">

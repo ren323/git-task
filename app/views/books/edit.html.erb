@@ -1,10 +1,10 @@
 <div class="field row">
   <h1>Editing Book</h1>
     <% if @book.errors.any? %>
-      <h2><%= @book.errors.count %>error prohibited this book from being saved:</h2>
+      <h3><%= @book.errors.count %>error prohibited this book from being saved:</h3>
         <ul>
           <% @book.errors.full_messages.each do |message| %>
-            <li><%= message %></li>
+            <h3><%= message %></h3>
           <% end %>
         </ul>
     <% end %>
